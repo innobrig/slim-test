@@ -10,3 +10,6 @@ Test for a very basic Slim Page Manager (has no real use beyond testing some cod
 
 4) hit <host>/slim-test/web
 
+### Note: 
+/slim-test/var must be writable by your webserver.
+

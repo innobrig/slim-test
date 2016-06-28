@@ -1,0 +1,16 @@
+{% extends 'layout.twig' %}
+
+{% set title = page.title %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <div class="ui grid container">
+        <div class="ui two column stackable grid">
+            <h3>{{ page.title }}</h3>
+            <p>{{ page.body|raw }}</p>
+        </div>
+    </div>
+
+{% endblock %}
+

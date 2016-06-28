@@ -1,0 +1,56 @@
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script>tinymce.init({
+        selector:'textarea',
+        plugins:  'autoresize visualblocks table',
+        content_css: 'css/content.css',
+        style_formats: [
+            {title: "Headers", items: [
+                {title: "Header 1", format: "h1"},
+                {title: "Header 2", format: "h2"},
+                {title: "Header 3", format: "h3"},
+                {title: "Header 4", format: "h4"},
+                {title: "Header 5", format: "h5"},
+                {title: "Header 6", format: "h6"}
+            ]},
+
+            { title: 'Blocks', items: [
+                { title: 'p', block: 'p' },
+                { title: 'div', block: 'div' },
+                { title: 'pre', block: 'pre' }
+            ] },
+
+            { title: 'Containers', items: [
+                { title: 'section', block: 'section', wrapper: true, merge_siblings: false },
+                { title: 'article', block: 'article', wrapper: true, merge_siblings: false },
+                { title: 'blockquote', block: 'blockquote', wrapper: true },
+                { title: 'hgroup', block: 'hgroup', wrapper: true },
+                { title: 'aside', block: 'aside', wrapper: true },
+                { title: 'figure', block: 'figure', wrapper: true }
+            ] },
+
+            {title: "Inline", items: [
+                {title: "Bold", icon: "bold", format: "bold"},
+                {title: "Italic", icon: "italic", format: "italic"},
+                {title: "Underline", icon: "underline", format: "underline"},
+                {title: "Strikethrough", icon: "strikethrough", format: "strikethrough"},
+                {title: "Superscript", icon: "superscript", format: "superscript"},
+                {title: "Subscript", icon: "subscript", format: "subscript"},
+                {title: "Code", icon: "code", format: "code"}
+            ]},
+
+            {title: "Alignment", items: [
+                {title: "Left", icon: "alignleft", format: "alignleft"},
+                {title: "Center", icon: "aligncenter", format: "aligncenter"},
+                {title: "Right", icon: "alignright", format: "alignright"},
+                {title: "Justify", icon: "alignjustify", format: "alignjustify"}
+            ]},
+
+            {title: "Image Placement", items: [
+                { title: 'Image Left', selector: 'img', styles: {'float': 'left', 'margin': '0 10px 0 10px' } },
+                { title: 'Image Right', selector: 'img', styles: { 'float': 'right', 'margin': '0 0 10px 10px' } }
+            ]}
+        ],
+        visualblocks_default_state: true,
+        end_container_on_empty_block: true
+    });
+</script>

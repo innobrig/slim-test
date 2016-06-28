@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" >
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>{% block title %}{% endblock %} &ndash; SlimCMS</title>
+
+	<link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	<link rel="stylesheet" type='text/css' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+	<link rel="stylesheet" type='text/css' href='https://fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic' />
+	<link rel="stylesheet" type='text/css' href="{{ base_url() }}/css/polyglot-language-switcher.css" />
+	<link rel="stylesheet" type='text/css' href="{{ base_url() }}/css/style.css" />
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.ie.min.css" />
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+	<input type="hidden" id="baseUrl" value="{{ base_url() }}" />
+	<div id="wrap">
+		{% block nav %}
+			<nav class="navbar" role="navigation">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="visible-xs"><i class="fa fa-bars"></i></span>
+						</button>
+						<a class="navbar-brand" href="{{ base_url() }}">LOGO</a>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse pull-left">
+						<ul class="nav navbar-nav">
+							<li><a href="#">{% trans "Menu1" %}</a></li>
+							<li><a href="#">{% trans "Menu2" %}</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</nav>
+		{% endblock %}
+
+		<div id="layout" class="container">
+
+			{% if flashMessagesHave() %}
+				<div class="row">
+					<div class="col-md-12">
+						<div class="column">
+							{{ flashMessagesDisplay() }}
+						</div>
+					</div>
+				</div>
+			{% endif  %}
+
+			{% if not adminPage %}
+				<div class="row vspace-20"></div>
+			{% endif %}
+
+			{% block content %}{% endblock %}
+
+		</div>
+	</div>
+
+	<footer id="footer">
+		I hope you guys like my code
+	</footer>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	{% block javascript %}{% endblock %}
+
+
+</body>
+</html>

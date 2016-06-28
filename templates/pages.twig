@@ -1,0 +1,48 @@
+{% extends 'layout.twig' %}
+{% set title = 'Content Pages'  %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            {% trans "Pages List" %}
+            <a class="btn btn-primary btn-xs pull-right" href="{{ path_for('pageEdit') }}">
+                <i class="fa fa-plus"></i>&nbsp;&nbsp;{% trans "Add a new Page" %}
+            </a>
+        </div>
+    </div>
+
+    {% if pages %}
+        <table class="table table-bordered table-hover table-condensed table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Lang</th>
+                    <th>Created</th>
+                    <th>Updated</th>
+                    <th class="action">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for page in pages %}
+                    <tr>
+                        <td>{{ page.title }}</td>
+                        <td>{{ page.slug }}</td>
+                        <td>{{ page.lang }}</td>
+                        <td>{{ page.created_at }}</td>
+                        <td>{{ page.updated_at }}</td>
+                        <td class="action">
+                            <a href="{{ path_for('page', { 'id': page.slug }) }}" target="_blank"><i class="fa fa-eye"></i></a>
+                            <a href="{{ path_for('pageEditExisting', { 'id': page.id }) }}"><i class="fa fa-edit"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        {% trans "No items found." %}
+    {% endif %}
+
+{% endblock %}
